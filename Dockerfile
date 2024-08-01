@@ -1,4 +1,7 @@
-FROM ubuntu:24.04
+# this needs to be set to either enabled or disabled
+ARG gil
+
+FROM ubuntu:24.04 AS base
 
 # fetch ubuntu sources
 RUN sed -i 's/Types: deb/Types: deb deb-src/g' /etc/apt/sources.list.d/ubuntu.sources
@@ -36,10 +39,21 @@ RUN git clone https://github.com/python/cpython.git
 WORKDIR /cpython
 RUN git checkout 3.13
 
-# build & install python with GIL disabled
-RUN ./configure --disable-gil # --with-openssl=/usr/bin --enable-optimizations
+FROM base AS python_3_13_gil_enabled
+# build & install python with GIL enabled
+RUN ./configure
 RUN make
 RUN make install
 
+FROM base AS python_3_13_gil_disabled
+# build & install python with GIL disabled
+RUN ./configure --disable-gil
+RUN make
+RUN make install
+
+FROM python_3_13_gil_${gil} AS final
 # make python3 our default python
 RUN ln -s $(which python3) /usr/bin/python
+
+# add demo code
+COPY free_threading.py free_threading.py
