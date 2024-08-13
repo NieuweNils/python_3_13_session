@@ -56,4 +56,4 @@ FROM python_3_13_gil_${gil} AS final
 RUN ln -s $(which python3) /usr/bin/python
 
 # add demo code
-COPY free_threading.py free_threading.py
+COPY 9_free_threading.py free_threading.py

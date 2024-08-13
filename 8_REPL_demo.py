@@ -1,8 +1,10 @@
+# editing
 name = "Nils"
 if name == "Nils":
     print("woh")
 
 
+# pasting
 class Toolbox:
     """an example of a class, something a lot of people do not take advantage of in Python"""
 
