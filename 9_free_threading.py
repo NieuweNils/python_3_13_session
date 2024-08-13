@@ -1,9 +1,8 @@
 import dataclasses
-import threading
 import queue
-import time
 import random
-from typing import List
+import threading
+import time
 
 from data import haikus
 
