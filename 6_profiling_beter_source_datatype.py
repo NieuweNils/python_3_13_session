@@ -27,7 +27,7 @@ def find_occurrences(sentence_list: List[str], word_to_find: str):
     words.count(word_to_find)
 
 
-def generate_data(number_of_records: int) -> (float, List[str]):
+def generate_data(number_of_records: int) -> (int, List[str]):
     for _ in range(number_of_records):
         yield random.randint(15, 20), HAIKUS
 
