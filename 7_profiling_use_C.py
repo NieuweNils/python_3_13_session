@@ -19,7 +19,7 @@ class Data:
     context: List[str]
 
 
-def calculate_fibonacci_sequence(n: int):
+def calculate_fibonacci_sequence(n: int) -> int:
     return c_ext_module.fibonnaci(n)
 
 

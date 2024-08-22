@@ -17,7 +17,7 @@ class Data:
     context: List[str]
 
 
-def calculate_fibonacci_sequence(n: float):
+def calculate_fibonacci_sequence(n: float) -> float:
     return n if n < 2 else calculate_fibonacci_sequence(n - 2) + calculate_fibonacci_sequence(n - 1)
 
 
