@@ -14,3 +14,5 @@ class Toolbox:
     def __repr__(self):
         return f"Toolbox(name={self.name!r})"
 
+# errors
+toolbox = new Toolbox("usefull stuff")
